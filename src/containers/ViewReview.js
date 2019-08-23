@@ -11,6 +11,7 @@ class ViewReview extends Component {
     this.setState({
       data: [
         {
+          id: 1,
           nameOfVilla: "Arun",
           dateOfVisit: "12",
           pinCode: "",
@@ -20,6 +21,7 @@ class ViewReview extends Component {
           noteVillaDecor: ""
         },
         {
+          id: 2,
           nameOfVilla: "Shejul",
           dateOfVisit: "12",
           pinCode: "",
@@ -44,7 +46,7 @@ class ViewReview extends Component {
       <Container>
         <ListGroup variant="flush">
           {this.state.data.map(item => (
-            <ListGroup.Item>
+            <ListGroup.Item key={item.id}>
               {item.nameOfVilla}
               <br />
               {item.dateOfVisit}

@@ -99,7 +99,8 @@ class AddReview extends Component {
                 <Form.Label>PinCode</Form.Label>
                 <Form.Control
                   required
-                  type="text"
+                  type="number"
+                  maxLength={5}
                   value={this.state.pinCode}
                   placeholder="Pincode"
                   onChange={txt => this.setState({ pinCode: txt.value })}
