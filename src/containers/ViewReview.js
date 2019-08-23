@@ -3,49 +3,29 @@ import { Container, ListGroup, Button } from "react-bootstrap";
 
 class ViewReview extends Component {
   state = {
-    data: []
+    reviews: []
   };
 
   componentDidMount() {
-    const data = JSON.parse(localStorage.getItem("review"));
-    this.setState({
-      data: [
-        {
-          id: 1,
-          nameOfVilla: "Arun",
-          dateOfVisit: "12",
-          pinCode: "",
-          nameOfOwner: "",
-          noteVillaSurrounding: "",
-          noteVillaConstruction: "",
-          noteVillaDecor: ""
-        },
-        {
-          id: 2,
-          nameOfVilla: "Shejul",
-          dateOfVisit: "12",
-          pinCode: "",
-          nameOfOwner: "",
-          noteVillaSurrounding: "",
-          noteVillaConstruction: "",
-          noteVillaDecor: ""
-        }
-      ]
-    });
+    let str = localStorage.getItem("reviews");
+    let reviews = JSON.parse(str);
+    if (!reviews) {
+      reviews = [];
+    }
+    this.setState(reviews);
     console.log("@@@@@@@@@@@@@@@@");
-
-    console.log(this.state.data);
+    console.log(JSON.stringify(reviews));
   }
 
   handleDelete = () => {
-    const data = JSON.parse(localStorage.getItem("review"));
+    const reviews = JSON.parse(localStorage.getItem("reviews"));
   };
 
   render() {
     return (
       <Container>
         <ListGroup variant="flush">
-          {this.state.data.map(item => (
+          {this.state.reviews.map(item => (
             <ListGroup.Item key={item.id}>
               {item.nameOfVilla}
               <br />
@@ -53,7 +33,7 @@ class ViewReview extends Component {
               <br />
               {item.pinCode}
               <br />
-              <Button variant="danger" onClick={this.handleDelete}>
+              <Button deleteid={item.id} variant="danger" onClick={this.handleDelete}>
                 Delete
               </Button>
             </ListGroup.Item>
