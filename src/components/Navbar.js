@@ -5,7 +5,7 @@ import { Navbar, Nav, Container, Row, Col } from "react-bootstrap";
 const NavBar = () => (
   <Container fluid>
     <Row style={{ backgroundColor: "#0C1D38" }}>
-      <Col lgOffset={2} lg={8} mdOffset={2} md={8}>
+      <Col xs={12} sm={12} md={12} lg={12}>
         <Navbar style={{ backgroundColor: "#0C1D38", borderColor: "#0C1D38" }}>
           <Navbar.Brand style={{ color: "#FFF" }} href="/">
             Isprava
